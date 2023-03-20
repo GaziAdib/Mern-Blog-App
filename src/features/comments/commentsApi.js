@@ -34,9 +34,20 @@ export const commentsApi = rootApi.injectEndpoints({
             //         console.log(error);
             //     }
             // }
+        }),
+
+        addReply: builder.mutation({
+            query: ({ commentId, data }) => ({
+                url: `/comments/comments/${commentId}/reply`,
+                method: 'POST',
+                body: data
+            }),
+            invalidatesTags: ['Comment']
         })
+
+
     })
 
 })
 
-export const { useFetchCommentsQuery, useAddCommentMutation } = commentsApi
+export const { useFetchCommentsQuery, useAddCommentMutation, useAddReplyMutation } = commentsApi
