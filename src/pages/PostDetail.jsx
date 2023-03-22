@@ -18,15 +18,11 @@ const PostDetail = () => {
     // fetch all comments by postId
     let { data: comments } = useFetchCommentsQuery(postId) || {};
 
-    var total = 0;
 
     let totals = comments?.map((item) => item?.replies?.length)
 
     let ultimateTotal = totals?.reduce((acc, item) => acc + item, 0);
 
-    console.log('ul total', ultimateTotal)
-
-    console.log('t:', totals);
 
     ultimateTotal = ultimateTotal + comments?.length;
 
