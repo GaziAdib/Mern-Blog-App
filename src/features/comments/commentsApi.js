@@ -38,7 +38,7 @@ export const commentsApi = rootApi.injectEndpoints({
 
         addReply: builder.mutation({
             query: ({ commentId, data }) => ({
-                url: `/comments/comments/${commentId}/reply`,
+                url: `/comments/${commentId}/reply`,
                 method: 'PUT',
                 body: data
             }),
@@ -47,7 +47,7 @@ export const commentsApi = rootApi.injectEndpoints({
 
         deleteReply: builder.mutation({
             query: ({ commentId, replyId }) => ({
-                url: `/comments/comments/${commentId}/replies/${replyId}`,
+                url: `/comments/${commentId}/replies/${replyId}`,
                 method: 'DELETE'
             }),
             invalidatesTags: ['Comment']
